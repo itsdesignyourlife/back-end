@@ -34,7 +34,8 @@
   },
   "dependencies": {
     "cross-env": "^5.2.0",
-    "sqlite3": "^4.0.9",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^7.11.0",
+    "sqlite3": "^4.0.9"
   }
 }
