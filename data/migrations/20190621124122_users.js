@@ -26,6 +26,7 @@ exports.up = function(knex, Promise) {
       table.timestamp("createdAt").defaultTo(date);
       table.integer("engagementScore").notNullable();
       table.integer("energyScore").notNullable();
+      //test
     });
 };
 
