@@ -13,7 +13,7 @@ router.post('/register', (req, res) => {
     user.password = hash
     users.add(user).then(user => {
         const token = generateToken(user)
-        res.status(201).json({ user, token })
+        res.status(201).json({ message: 'User added successfully', token})
     })
     .catch(err => {
         res.status(500).json(err)
