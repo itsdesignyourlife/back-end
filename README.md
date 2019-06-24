@@ -37,6 +37,13 @@ HTTP type: **GET**
 
 **endpoint:** https://dyl-backend.herokuapp.com/api/posts
 
+### Get Posts By User ID 
+HTTP type: **GET**
+
+**endpoint:** https://dyl-backend.herokuapp.com/api/posts/:id
+
+Will return all the posts with a matching user ID. Will return an empty array if there are no posts with a matching user ID.
+
 ### New Post 
 HTTP type: **POST**
 

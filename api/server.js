@@ -12,7 +12,7 @@ server.use('/api/users', usersRouter)
 server.use('/api/posts', postsRouter)
 
 server.get('/', (req, res) => {
-    res.json('Build Week - June 24-28 - Design Your Life')
+    res.json('Lambda School Build Week - June 24-28 - Design Your Life')
 })
 
 module.exports = server;

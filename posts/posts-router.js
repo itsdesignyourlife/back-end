@@ -26,4 +26,16 @@ router.post("/", restricted, (req, res) => {
     });
 });
 
+router.get("/:id", restricted, (req, res) => {
+  posts
+    .getUserPosts(req.params.id)
+    .then(posts => {
+      res.status(200).json(posts);
+      console.log(posts)
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
+
 module.exports = router;

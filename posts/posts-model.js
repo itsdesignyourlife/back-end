@@ -3,7 +3,8 @@ const db = require("../data/dbConfig");
 module.exports = {
   find,
   findBy,
-  add
+  add,
+  getUserPosts
 };
 
 function find() {
@@ -25,3 +26,6 @@ function findById(id) {
     .where({ id })
     .first();
 }
+function getUserPosts(id) {
+    return db('posts').where({ user_id: id })
+  }
