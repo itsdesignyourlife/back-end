@@ -1,11 +1,11 @@
 {
-  "name": "testingserver",
+  "name": "dylbackend",
   "version": "1.0.0",
-  "description": "Server Testing Project",
-  "main": "server.js",
+  "description": "Build Week - Design Your Life Backend",
+  "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
-    "test": "cross-env DB_ENV=production jest --watch",
+    "test": "cross-env DB_ENV=testing jest --watch",
     "start": "node index.js"
   },
   "jest": {
