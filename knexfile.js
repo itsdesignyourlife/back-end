@@ -46,10 +46,13 @@ module.exports = {
   },
 
   production: {
-    client: "pg",
+    client: 'pg',
     connection: dbConnection,
     migrations: {
-      tableName: "knex_migrations"
-    }
-  }
+      directory: './data/migrations',
+    },
+    seeds: {
+      directory: './data/seeds',
+    },
+  },
 };
