@@ -20,7 +20,9 @@ router.post('/register', (req, res) => {
     })
 })
 router.get('/register', (req, res) => {
-    res.json('Register test')
+    users.find().then(users => {
+        res.status(200).json(users)
+    })
 })
 
 router.post('/login', (req, res) => {
