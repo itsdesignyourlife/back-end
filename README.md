@@ -29,3 +29,21 @@ name  | type | required | description
 ------------- | ------------- | ------------- | ------------- 
 username | string | yes | must be unique
 password | string | yes | must be unique
+
+### **Posts**
+
+
+HTTP type: **GET**
+
+**endpoint:** /api/posts
+
+
+name  | type | required | description
+------------- | ------------- | ------------- | ------------- 
+id (auto-generated) | integer | yes | 
+user_id | integer | yes | 
+createdAt (auto-generated) | string | yes
+postTitle | string | yes | Title of post
+postBody | string | yes | Body of post
+engagementScore | integer | yes | 
+energyScore | integer | yes | 
