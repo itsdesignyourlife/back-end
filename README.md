@@ -32,8 +32,13 @@ password | string | yes | must be unique
 
 ### **Posts**
 
-
+### Get All Posts 
 HTTP type: **GET**
+
+**endpoint:** https://dyl-backend.herokuapp.com/api/posts
+
+### New Post 
+HTTP type: **POST**
 
 **endpoint:** https://dyl-backend.herokuapp.com/api/posts
 
