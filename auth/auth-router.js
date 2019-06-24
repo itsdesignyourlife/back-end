@@ -19,6 +19,9 @@ router.post('/register', (req, res) => {
         res.status(500).json(err)
     })
 })
+router.get('/register', (req, res) => {
+    res.json('Register test')
+})
 
 router.post('/login', (req, res) => {
     let { username, password } = req.body
