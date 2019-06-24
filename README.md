@@ -8,7 +8,7 @@ Backend documentation for Design Your Life.
 
 HTTP type: **POST**
 
-**endpoint:** /api/auth/register
+**endpoint:** https://dyl-backend.herokuapp.com/api/auth/register
 
 
 name  | type | required | description
@@ -22,7 +22,7 @@ password | string | yes | must be unique
 
 HTTP type: **POST**
 
-**endpoint:** /api/auth/login
+**endpoint:** https://dyl-backend.herokuapp.com/api/auth/login
 
 
 name  | type | required | description
@@ -35,7 +35,7 @@ password | string | yes | must be unique
 
 HTTP type: **GET**
 
-**endpoint:** /api/posts
+**endpoint:** https://dyl-backend.herokuapp.com/api/posts
 
 
 name  | type | required | description
