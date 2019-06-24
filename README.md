@@ -6,6 +6,8 @@ Backend documentation for Design Your Life.
 
 ### **Register**
 
+HTTP type: **POST**
+
 **endpoint:** /api/auth/register
 
 
@@ -16,6 +18,9 @@ username | string | yes | must be unique
 password | string | yes | must be unique
 
 ### **Login**
+
+
+HTTP type: **POST**
 
 **endpoint:** /api/auth/login
 
