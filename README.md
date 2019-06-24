@@ -1,6 +1,6 @@
 # Design Your Life - Back End
 
-Backend documentation for Design Your Life.
+Backend documentation for Design Your Life - Lambda School Build Week - June 24-28
 
 # Auth 
 
