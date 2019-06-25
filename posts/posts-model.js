@@ -18,10 +18,10 @@ function findBy(filter) {
   return db("posts").where(filter);
 }
 
-function add(post) {
-  return db("posts")
-    .insert(post)
-    .then(([id]) => findById(id));
+async function add(user) {
+  await db("users").insert(user);
+
+  return user;
 }
 
 function findById(id) {
