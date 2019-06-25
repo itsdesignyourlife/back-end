@@ -2,6 +2,30 @@
 
 Backend documentation for Design Your Life - Lambda School Build Week - June 24-28
 
+# Schema 
+
+### User
+
+
+    {
+        "id": 1, //string, primary key
+        "username": "something", //string, unique, required
+        "password": "$2a$12$hkkcyirSYUVs1PrIyoZfAeoOjqDRVNXYl7pMZTOI5ab5O1FxbkP.e" //string, unique, required
+    }
+
+### Post    
+
+
+    {
+        "id": 1,        //string, primary key
+        "user_id": 1,       //string, foreign key, required
+        "postTitle": "Title Example",       //string, required
+        "postBody": "Body Example",     //string, required
+        "createdAt": "June 24th 2019, 10:46 am",        //string
+        "engagementScore": 1,       //integer, required
+        "energyScore": 1           //integer, required
+    }
+
 # Auth 
 
 ### **Register**
@@ -112,11 +136,11 @@ HTTP type: **POST**
 
 
 
-### Posts Table Data Schema
+
 name  | type | required | description
 ------------- | ------------- | ------------- | ------------- 
 id (auto-generated) | integer | yes | 
-user_id | integer | yes | 
+user_id  | integer | yes | Foreign key
 createdAt (auto-generated) | string | yes
 postTitle | string | yes | Title of post
 postBody | string | yes | Body of post
