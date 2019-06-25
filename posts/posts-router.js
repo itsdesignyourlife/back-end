@@ -19,7 +19,7 @@ router.post("/", restricted, (req, res) => {
   posts
     .add(req.body)
     .then(post => {
-      res.status(200).json(post);
+      res.status(200).json({message: 'Post added successfully!'});
     })
     .catch(err => {
       res.status(500).json(err);
