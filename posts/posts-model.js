@@ -6,7 +6,6 @@ module.exports = {
   add,
   findById,
   update,
-  getSinglePost
 };
 
 function find() {
@@ -29,13 +28,8 @@ function findById(id) {
 }
 
 function update(id, edits) {
-  return db("boards")
+  return db("posts")
     .where({ id })
     .update(edits);
 }
 
-function getSinglePost(id) {
-  return db("boards")
-    .where({ id })
-    .first();
-}

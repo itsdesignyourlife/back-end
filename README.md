@@ -54,7 +54,8 @@ A successful login request will result in a `[200]` status code and will return 
         "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0Ijo4LCJ1c2VybmFtZSI6InVzZXJuYW1lIiwiaWF0IjoxNTYxNDc2NTcwLCJleHAiOjE1NjE1MTk3NzB9.NaXfLgpVadotfgRlFnA57Co5VKYymD2-d_kK1Gwur7Q"
     }
 ```
-    
+
+### **Home**
 ### Get Posts By User ID 
 HTTP type: **GET**
 
@@ -69,6 +70,8 @@ HTTP type: **GET**
 
 **endpoint:** https://dyl-backend.herokuapp.com/api/posts
 
+Will return all posts (get posts by user ID should be used to retrieve a user's posts indstead of this method).
+
 ### Get Individual Post By Post ID 
 HTTP type: **GET**
 
@@ -76,10 +79,19 @@ HTTP type: **GET**
 
 Will return the individual post with a matching the post ID. 
 
+### Update Post 
+HTTP type: **PUT**
+
+**endpoint:** https://dyl-backend.herokuapp.com/api/posts/:id
+
+Will update the post with the matching post ID.
+
 ### New Post 
 HTTP type: **POST**
 
 **endpoint:** https://dyl-backend.herokuapp.com/api/posts
+
+
 
 
 name  | type | required | description

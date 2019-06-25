@@ -19,7 +19,7 @@ router.post("/", restricted, (req, res) => {
   posts
     .add(req.body)
     .then(post => {
-      res.status(200).json({message: 'Post added successfully!'});
+      res.status(200).json({ message: "Post added successfully!" });
     })
     .catch(err => {
       res.status(500).json(err);
@@ -31,20 +31,23 @@ router.get("/:id", restricted, (req, res) => {
     .findById(req.params.id)
     .then(post => {
       res.status(200).json(post);
-      console.log(posts)
+      console.log('Posts',posts);
     })
     .catch(err => {
       res.status(500).json(err);
     });
 });
 
-router.put('/', restricted, (req, res) => {
-    posts.update(req.params.id, req.body).then(post => {
-        res.status(200).json({ message: 'Post updated successfully!'})
+router.put("/:id", restricted, (req, res) => {
+    const id = req.params.id
+  posts
+    .update(id, req.body)
+    .then(post => {
+      res.status(200).json({ message: "Post updated successfully!" });
     })
     .catch(err => {
-        res.status(500).json(err)
-    })
-})
+      res.status(500).json(err);
+    });
+});
 
 module.exports = router;
