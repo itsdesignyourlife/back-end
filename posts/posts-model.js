@@ -18,8 +18,8 @@ function findBy(filter) {
   return db("posts").where(filter);
 }
 
-async function add(user) {
-  await db("users").insert(user);
+async function add(post) {
+  await db("posts").insert([post]);
 
   return user;
 }
