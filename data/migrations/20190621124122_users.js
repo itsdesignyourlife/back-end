@@ -23,7 +23,7 @@ exports.up = function(knex, Promise) {
         .onUpdate("CASCADE");
       table.string("postTitle", 128).notNullable();
       table.string("postBody", 128).notNullable();
-      table.timestamp('created_at').defaultTo(knex.fn.now(date));
+      table.dateTime('createdAt').defaultTo(date)
       table.integer("engagementScore").notNullable();
       table.integer("energyScore").notNullable();
       //test
