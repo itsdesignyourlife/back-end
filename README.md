@@ -41,7 +41,7 @@ id (auto-generated)  | integer | yes |
 username | string | yes | must be unique
 password | string | yes | must be unique
 
-A successful login request will result in a `[201]` status code and will return something similar to the following:
+A successful register request will result in a `[201]` status code and will return something similar to the following:
 ```javascript
     {
     "user": {
@@ -51,10 +51,16 @@ A successful login request will result in a `[201]` status code and will return 
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lIiwiaWF0IjoxNTYxNDczODM2LCJleHAiOjE1NjE1MTcwMzZ9.PPV6bXPm-GzMYa-QGL6ygwfxYo6LAp7vwadi2MK2x_Y"
     }
 ```
-An unsuccessful login request will result in a `[401]` status code and will return the following:
+An unsuccessful register request will result in a `[401]` status code and will return the following:
 ```javascript
     {
         "message": "Invalid credentials"
+    }
+```
+A register request with one empty field will result in a `[400]` status code and will return the following:
+```javascript
+    {
+        "message":"Both username and password are required."
     }
 ```
 
@@ -76,6 +82,12 @@ A successful login request will result in a `[200]` status code and will return 
     {
         "message":"Welcome ${user.username}! Have a token!",
         "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0Ijo4LCJ1c2VybmFtZSI6InVzZXJuYW1lIiwiaWF0IjoxNTYxNDc2NTcwLCJleHAiOjE1NjE1MTk3NzB9.NaXfLgpVadotfgRlFnA57Co5VKYymD2-d_kK1Gwur7Q"
+    }
+```
+A login request with one empty field will result in a `[400]` status code and will return the following:
+```javascript
+    {
+        "message":"Both username and password are required."
     }
 ```
 
