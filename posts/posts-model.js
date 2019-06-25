@@ -18,8 +18,9 @@ function findBy(filter) {
   return db("posts").where(filter);
 }
 
- function add(post) {
-  return db("posts").insert(post).then(([id]) => findById(id))
+async function add(post) {
+  await db("posts").insert(post)
+  return post;
 }
 
 function findById(id) {
