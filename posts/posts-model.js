@@ -4,11 +4,12 @@ module.exports = {
   find,
   findBy,
   add,
-  getUserPosts
+  getUserPosts,
+  findById
 };
 
 function find() {
-  return db("posts")
+  return db("posts");
 }
 
 function findBy(filter) {
@@ -16,9 +17,9 @@ function findBy(filter) {
 }
 
 async function add(post) {
-  const [id] = await db("posts").insert(post);
+  await db("posts").insert(post);
 
-  return findById(id);
+  return post;
 }
 
 function findById(id) {
@@ -27,5 +28,5 @@ function findById(id) {
     .first();
 }
 function getUserPosts(id) {
-    return db('posts').where({ user_id: id })
-  }
+  return db("posts").where({ user_id: id });
+}
