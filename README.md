@@ -21,7 +21,7 @@ Backend documentation for Design Your Life - Lambda School Build Week - June 24-
         "user_id": 1,       //string, foreign key, required
         "postTitle": "Title Example",       //string, required
         "postBody": "Body Example",     //string, required
-        "createdAt": "June 24th 2019, 10:46 am",        //string
+        "createdAt": "June 24th 2019, 10:46 am",        //string, required
         "engagementScore": 1,       //integer, required
         "energyScore": 1           //integer, required
     }
@@ -141,7 +141,7 @@ name  | type | required | description
 ------------- | ------------- | ------------- | ------------- 
 id (auto-generated) | integer | yes | 
 user_id  | integer | yes | Foreign key
-createdAt (auto-generated) | string | yes
+createdAt  | string | yes
 postTitle | string | yes | Title of post
 postBody | string | yes | Body of post
 engagementScore | integer | yes | 
