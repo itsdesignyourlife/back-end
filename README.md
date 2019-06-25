@@ -25,7 +25,13 @@ A successful login request will result in a `[201]` status code and will return 
         "password": "$2a$12$UcQeyYe6lLKBKo1/gnJyJuqUElGy3.TMezHUyBrcUS4vbvwCzJ0s6"
     },
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lIiwiaWF0IjoxNTYxNDczODM2LCJleHAiOjE1NjE1MTcwMzZ9.PPV6bXPm-GzMYa-QGL6ygwfxYo6LAp7vwadi2MK2x_Y"
-}
+    }
+```
+A unsuccessful login request will result in a `[401]` status code and will return the following:
+```javascript
+    {
+        "message": "Invalid credentials"
+    }
 ```
 
 ### **Login**

@@ -28,9 +28,9 @@ router.post("/", restricted, (req, res) => {
 
 router.get("/:id", restricted, (req, res) => {
   posts
-    .getUserPosts(req.params.id)
-    .then(posts => {
-      res.status(200).json(posts);
+    .findById(req.params.id)
+    .then(post => {
+      res.status(200).json(post);
       console.log(posts)
     })
     .catch(err => {
@@ -38,9 +38,9 @@ router.get("/:id", restricted, (req, res) => {
     });
 });
 
-router.put('/', (req, res) => {
-    posts.update(req.paramds.id, req.body).then(post => {
-        res.status(200).json(post)
+router.put('/', restricted, (req, res) => {
+    posts.update(req.params.id, req.body).then(post => {
+        res.status(200).json({ message: 'Post updated successfully!'})
     })
     .catch(err => {
         res.status(500).json(err)
