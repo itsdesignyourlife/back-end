@@ -16,10 +16,29 @@ router.get("/", restricted, (req, res) => {
 });
 
 router.post("/", restricted, (req, res) => {
+  const {
+    user_id,
+    createdAt,
+    postTitle,
+    postBody,
+    engagementScore,
+    energyScore
+  } = req.body;
   posts
     .add(req.body)
     .then(post => {
-      res.status(200).json({ message: "Post added successfully!", post });
+      if (
+        !user_id ||
+        !createdAt ||
+        !postTitle ||
+        !postBody ||
+        !engagementScore ||
+        !energyScore
+      ) {
+        res.status(400).json({ message: "Missing required field(s)" });
+      } else {
+        res.status(200).json({ message: "Post added successfully!", post });
+      }
     })
     .catch(err => {
       res.status(500).json(err);
@@ -31,7 +50,7 @@ router.get("/:id", restricted, (req, res) => {
     .findById(req.params.id)
     .then(post => {
       res.status(200).json(post);
-      console.log("Posts", posts);
+    //   console.log("Posts", posts);
     })
     .catch(err => {
       res.status(500).json(err);
@@ -39,12 +58,31 @@ router.get("/:id", restricted, (req, res) => {
 });
 
 router.put("/:id", restricted, (req, res) => {
+    const {
+        user_id,
+        createdAt,
+        postTitle,
+        postBody,
+        engagementScore,
+        energyScore
+      } = req.body;
   const id = req.params.id;
   posts
     .update(id, req.body)
     .then(post => {
-      res.status(200).json({ message: "Post updated successfully!" });
-    })
+        if (
+          !user_id ||
+          !createdAt ||
+          !postTitle ||
+          !postBody ||
+          !engagementScore ||
+          !energyScore
+        ) {
+          res.status(400).json({ message: "Missing required field(s)" });
+        } else {
+          res.status(200).json({ message: "Post updated successfully!", post });
+        }
+      }) 
     .catch(err => {
       res.status(500).json(err);
     });

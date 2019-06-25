@@ -115,6 +115,12 @@ A successful update request will result in a `[200]` status code and will return
         "message":"Post updated successfully!"
     }
 ```
+An update request with a missing required fieldwill result in a `[400]` status code and will return the following:
+```javascript
+    {
+        "message":"Missing required field(s)"
+    }
+```
 
 ### Remove Post 
 HTTP type: **DELETE**
@@ -133,6 +139,19 @@ A successful removal request will result in a `[200]` status code and will retur
 HTTP type: **POST**
 
 **endpoint:** https://dyl-backend.herokuapp.com/api/posts
+A successful post request will result in a `[200]` status code and will return the following:
+```javascript
+    {
+        "message":"Post added successfully!"
+    }
+```
+
+A post request with a missing required field will result in a `[400]` status code and will return the following:
+```javascript
+    {
+        "message":"Missing required field(s)"
+    }
+```
 
 
 
