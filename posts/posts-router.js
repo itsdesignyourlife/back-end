@@ -31,7 +31,7 @@ router.get("/:id", restricted, (req, res) => {
     .findById(req.params.id)
     .then(post => {
       res.status(200).json(post);
-      console.log('Posts',posts);
+      console.log("Posts", posts);
     })
     .catch(err => {
       res.status(500).json(err);
@@ -39,11 +39,23 @@ router.get("/:id", restricted, (req, res) => {
 });
 
 router.put("/:id", restricted, (req, res) => {
-    const id = req.params.id
+  const id = req.params.id;
   posts
     .update(id, req.body)
     .then(post => {
       res.status(200).json({ message: "Post updated successfully!" });
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
+
+router.delete("/:id", restricted, (req, res) => {
+  const id = req.params.id;
+  posts
+    .remove(id, req.body)
+    .then(post => {
+      res.status(200).json({ message: "Post removed successfully" });
     })
     .catch(err => {
       res.status(500).json(err);

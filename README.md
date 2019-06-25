@@ -23,11 +23,11 @@ A successful login request will result in a `[201]` status code and will return 
     "user": {
         "username": "username",
         "password": "$2a$12$UcQeyYe6lLKBKo1/gnJyJuqUElGy3.TMezHUyBrcUS4vbvwCzJ0s6"
-    },
+            },
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lIiwiaWF0IjoxNTYxNDczODM2LCJleHAiOjE1NjE1MTcwMzZ9.PPV6bXPm-GzMYa-QGL6ygwfxYo6LAp7vwadi2MK2x_Y"
     }
 ```
-A unsuccessful login request will result in a `[401]` status code and will return the following:
+An unsuccessful login request will result in a `[401]` status code and will return the following:
 ```javascript
     {
         "message": "Invalid credentials"
@@ -85,6 +85,25 @@ HTTP type: **PUT**
 **endpoint:** https://dyl-backend.herokuapp.com/api/posts/:id
 
 Will update the post with the matching post ID.
+A successful update request will result in a `[200]` status code and will return the following:
+```javascript
+    {
+        "message":"Post updated successfully!"
+    }
+```
+
+### Remove Post 
+HTTP type: **DELETE**
+
+**endpoint:** https://dyl-backend.herokuapp.com/api/posts/:id
+
+Will remove the post with the matching post ID.
+A successful removal request will result in a `[200]` status code and will return the following:
+```javascript
+    {
+        "message":"Post removed successfully"
+    }
+```
 
 ### New Post 
 HTTP type: **POST**
@@ -93,7 +112,7 @@ HTTP type: **POST**
 
 
 
-
+### Posts Table Data Schema
 name  | type | required | description
 ------------- | ------------- | ------------- | ------------- 
 id (auto-generated) | integer | yes | 
