@@ -5,7 +5,9 @@ module.exports = {
   findBy,
   add,
   getUserPosts,
-  findById
+  findById,
+  update,
+  getSinglePost
 };
 
 function find() {
@@ -16,10 +18,10 @@ function findBy(filter) {
   return db("posts").where(filter);
 }
 
-async function add(post) {
-  await db("posts").insert(post);
-
-  return post;
+function add(post) {
+  return db("posts")
+    .insert(post)
+    .then(([id]) => findById(id));
 }
 
 function findById(id) {
@@ -29,4 +31,16 @@ function findById(id) {
 }
 function getUserPosts(id) {
   return db("posts").where({ user_id: id });
+}
+
+function update(id, edits) {
+  return db("boards")
+    .where({ id })
+    .update(edits);
+}
+
+function getSinglePost(id) {
+  return db("boards")
+    .where({ id })
+    .first();
 }

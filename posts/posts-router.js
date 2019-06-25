@@ -38,4 +38,13 @@ router.get("/:id", restricted, (req, res) => {
     });
 });
 
+router.put('/', (req, res) => {
+    posts.update(req.paramds.id, req.body).then(post => {
+        res.status(200).json(post)
+    })
+    .catch(err => {
+        res.status(500).json(err)
+    })
+})
+
 module.exports = router;
