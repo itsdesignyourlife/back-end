@@ -30,5 +30,13 @@ describe("Auth Router", () => {
 
       expect(res.status).toBe(201);
     });
+    it("should return JSON", async () => {
+      const user = { username: "example2", password: "example" };
+
+      const res = await supertest(server)
+        .post("/api/auth/register")
+        .send(user)
+        .expect("content-type", /json/i);
+    });
   });
 });
