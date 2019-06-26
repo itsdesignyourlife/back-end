@@ -25,7 +25,7 @@ router.post("/", restricted, (req, res) => {
     energyScore
   } = req.body;
   posts
-    .add(req.body)
+    .add(req.body, user_id)
     .then(post => {
       if (
         !user_id ||
