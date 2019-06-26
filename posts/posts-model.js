@@ -19,7 +19,7 @@ function findBy(filter) {
 
 async function add(post, id) {
   await db("posts").insert(post);
-  return db('users').where({ user_id: id })
+  return db('posts').where({ user_id: id })
 }
 
 function findById(id) {
