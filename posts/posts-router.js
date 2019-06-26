@@ -26,7 +26,7 @@ router.post("/", restricted, (req, res) => {
   } = req.body;
   posts
     .add(req.body, user_id)
-    .then(post => {
+    .then(posts => {
       if (
         !user_id ||
         !createdAt ||
@@ -37,7 +37,7 @@ router.post("/", restricted, (req, res) => {
       ) {
         res.status(400).json({ message: "Missing required field(s)" });
       } else {
-        res.status(200).json({ message: "Post added successfully!", post });
+        res.status(200).json({ message: "Post added successfully!", posts });
       }
     })
     .catch(err => {
@@ -68,8 +68,8 @@ router.put("/:id", restricted, (req, res) => {
       } = req.body;
   const id = req.params.id;
   posts
-    .update(id, req.body)
-    .then(post => {
+    .update(id, req.body, user_id)
+    .then(posts => {
         if (
           !user_id ||
           !createdAt ||
@@ -80,7 +80,7 @@ router.put("/:id", restricted, (req, res) => {
         ) {
           res.status(400).json({ message: "Missing required field(s)" });
         } else {
-          res.status(200).json({ message: "Post updated successfully!", post });
+          res.status(200).json({ message: "Post updated successfully!", posts });
         }
       }) 
     .catch(err => {
@@ -90,10 +90,11 @@ router.put("/:id", restricted, (req, res) => {
 
 router.delete("/:id", restricted, (req, res) => {
   const id = req.params.id;
+  const { user_id } = req.body
   posts
-    .remove(id, req.body)
-    .then(post => {
-      res.status(200).json({ message: "Post removed successfully" });
+    .remove(id, user_id )
+    .then(posts => {
+      res.status(200).json({ message: "Post removed successfully", posts });
     })
     .catch(err => {
       res.status(500).json(err);

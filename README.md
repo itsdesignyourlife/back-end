@@ -19,9 +19,10 @@ Backend documentation for Design Your Life - Lambda School Build Week - June 24-
     {
         "id": 1,        //string, primary key
         "user_id": 1,       //string, foreign key, required
-        "postTitle": "Title Example",       //string, required
-        "postBody": "Body Example",     //string, required
-        "createdAt": "June 24th 2019, 10:46 am",        //string, required
+        "postTitle": "Title Example",       
+        "postBody": "Body Example",     
+        "createdAt": "June 24th 2019, 10:46 am",        
+        "username": "username"          
         "engagementScore": 1,       //integer, required
         "energyScore": 1           //integer, required
     }
@@ -124,7 +125,19 @@ Will update the post with the matching post ID.
 A successful update request will result in a `[200]` status code and will return the following:
 ```javascript
     {
-        "message":"Post updated successfully!"
+        "message":"Post updated successfully!",
+        "posts": [
+        {
+            "id": 1,        
+            "user_id": 1,       
+            "postTitle": "example changes",       
+            "postBody": "Body Example",     
+            "createdAt": "June 24th 2019, 10:46 am",        
+            "username": "username"         
+            "engagementScore": 1,      
+            "energyScore": 1           
+        }
+        ]
     }
 ```
 An update request with a missing required fieldwill result in a `[400]` status code and will return the following:
@@ -143,7 +156,19 @@ Will remove the post with the matching post ID.
 A successful removal request will result in a `[200]` status code and will return the following:
 ```javascript
     {
-        "message":"Post removed successfully"
+        "message":"Post removed successfully",
+        "posts": [
+        {
+            "id": 1,        
+            "user_id": 1,       
+            "postTitle": "Title Example",       
+            "postBody": "Body Example",     
+            "createdAt": "June 24th 2019, 10:46 am",        
+            "username": "username"         
+            "engagementScore": 1,      
+            "energyScore": 1           
+        }
+        ]
     }
 ```
 
@@ -151,10 +176,33 @@ A successful removal request will result in a `[200]` status code and will retur
 HTTP type: **POST**
 
 **endpoint:** https://dyl-backend.herokuapp.com/api/posts
-A successful post request will result in a `[200]` status code and will return the following:
+A successful post request will result in a `[200]` status code and will return something similar to the following:
 ```javascript
     {
-        "message":"Post added successfully!"
+        "message":"Post added successfully!",
+        "posts": [
+        {
+            "id": 1,        
+            "user_id": 1,       
+            "postTitle": "Title Example",       
+            "postBody": "Body Example",     
+            "createdAt": "June 24th 2019, 10:46 am",        
+            "username": "username"         
+            "engagementScore": 1,      
+            "energyScore": 1           
+        },
+        {
+            "id": 1,        
+            "user_id": 1,       
+            "postTitle": "Title Example",       
+            "postBody": "Body Example",     
+            "createdAt": "June 24th 2019, 10:46 am",        
+            "username": "username"         
+            "engagementScore": 1,      
+            "energyScore": 1           
+        }
+
+        ]
     }
 ```
 

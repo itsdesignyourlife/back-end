@@ -28,13 +28,15 @@ function findById(id) {
     .first();
 }
 
-function update(id, edits) {
-  return db("posts")
+async function update(id, edits, user_id) {
+  await db("posts")
     .where({ id })
     .update(edits);
+  return db("posts").where({ user_id: user_id });
 }
-function remove(id) {
-  return db("posts")
+async function remove(id, user_id) {
+  await db("posts")
     .where({ id })
     .del();
+  return db("posts").where({ user_id: user_id });
 }
