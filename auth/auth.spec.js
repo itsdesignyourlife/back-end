@@ -8,9 +8,6 @@ describe("Auth Router", () => {
   beforeEach(async () => {
     await db("users").truncate();
   });
-  it("should be running on testing env", () => {
-    expect(process.env.DB_ENV).toBe("testing");
-  });
 
   describe("add()", () => {
     it("should insert users", async () => {
@@ -33,7 +30,7 @@ describe("Auth Router", () => {
     it("should return JSON", async () => {
       const user = { username: "example2", password: "example" };
 
-      const res = await supertest(server)
+       await supertest(server)
         .post("/api/auth/register")
         .send(user)
         .expect("content-type", /json/i);
