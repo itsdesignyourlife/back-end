@@ -173,6 +173,7 @@ name  | type | required | description
 id (auto-generated) | integer | yes | 
 user_id  | integer | yes | Foreign key
 createdAt  | string | yes
+username  | string | yes
 postTitle | string | yes | Title of post
 postBody | string | yes | Body of post
 engagementScore | integer | yes | 
