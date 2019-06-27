@@ -2,9 +2,8 @@ const express = require("express");
 
 const router = express.Router();
 const time = require("../time/time-model");
-const restricted = require('../auth/restricted')
 
-router.get("/", restricted, (req, res) => {
+router.get("/", (req, res) => {
   time
     .find()
     .then(time => {
@@ -15,7 +14,7 @@ router.get("/", restricted, (req, res) => {
     });
 });
 
-router.put("/:id", restricted, (req, res) => {
+router.put("/:id", (req, res) => {
   const id = req.params.id;
   time
     .update(id, req.body)
@@ -27,7 +26,7 @@ router.put("/:id", restricted, (req, res) => {
     });
 });
 
-router.get("/:id", restricted, (req, res) => {
+router.get("/:id", (req, res) => {
   const id = req.params.id;
   time
     .findById(id)
