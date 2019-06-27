@@ -32,7 +32,7 @@ router.get("/:id", restricted, (req, res) => {
   time
     .findById(id)
     .then(time => {
-      res.status(500).json(time);
+      res.status(200).json(time);
     })
     .catch(err => {
       res.status(500).json(err);

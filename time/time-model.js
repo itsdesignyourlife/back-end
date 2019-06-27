@@ -22,8 +22,8 @@ async function update(id, edits) {
     return db("weekNumber").where({ id });
   }
 
-function findById(id) {
-  return db("weekNumber")
-    .where({ id })
+async function findById(id) {
+  return await db("weekNumber")
+    .where({ id: id })
     .first();
 }
