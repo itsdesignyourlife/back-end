@@ -18,7 +18,8 @@ router.get("/", restricted, (req, res) => {
 router.post("/", restricted, (req, res) => {
   const {
     user_id,
-    createdAt,
+    postTime,
+    postDate,
     postTitle,
     postBody,
     engagementScore,
@@ -29,7 +30,8 @@ router.post("/", restricted, (req, res) => {
     .then(posts => {
       if (
         !user_id ||
-        !createdAt ||
+        !postTime ||
+        !postDate ||
         !postTitle ||
         !postBody ||
         !engagementScore ||
