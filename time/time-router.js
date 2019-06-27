@@ -1,10 +1,7 @@
 const express = require("express");
-const cors = require('cors')
 
 const router = express.Router();
 const time = require("../time/time-model");
-
-router.use(cors())
 
 router.get("/", (req, res) => {
   time
