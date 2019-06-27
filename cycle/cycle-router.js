@@ -1,7 +1,9 @@
 const express = require("express");
+const cors = require('cors')
 
 const router = express.Router();
 const cycle = require('../cycle/cycle-model')
+router.use(cors())
 
 router.get('/', (req, res) => {
     cycle.find().then(cycle => {
