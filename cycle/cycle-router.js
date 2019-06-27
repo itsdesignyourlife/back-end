@@ -12,7 +12,16 @@ router.get('/', (req, res) => {
     })
 })
 
-router.put('/', (req, res) => {
+router.get('/:id', (req, res) => {
+    cycle.findById(req.params.id).then(cycle => {
+        res.status(200).json(cycle)
+    })
+    .catch(err => {
+        res.status(500).json(err)
+    })
+})
+
+router.put('/:id', (req, res) => {
     const id = req.params.id
     cycle.update(id, req.body).then(cycle => {
         res.status(200).json(cycle)

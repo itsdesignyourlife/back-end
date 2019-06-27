@@ -32,9 +32,11 @@ exports.up = function(knex, Promise) {
       //test
     })
     .createTable("weekNumber", table => {
+      table.increments()
       table.integer("weekNumber").notNullable();
     })
     .createTable('endOfWeekCycle', table => {
+      table.increments()
       table.string('endOfWeekCycle').notNullable()
     })
 };
