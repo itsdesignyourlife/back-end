@@ -62,7 +62,8 @@ router.get("/:id", restricted, (req, res) => {
 router.put("/:id", restricted, (req, res) => {
     const {
         user_id,
-        createdAt,
+        postTime,
+        postDate,
         postTitle,
         postBody,
         engagementScore,
@@ -74,7 +75,8 @@ router.put("/:id", restricted, (req, res) => {
     .then(posts => {
         if (
           !user_id ||
-          !createdAt ||
+          !postTime ||
+          !postDate ||
           !postTitle ||
           !postBody ||
           !engagementScore ||
