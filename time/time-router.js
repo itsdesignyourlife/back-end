@@ -2,6 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 const time = require("../time/time-model");
+const restricted = require('../auth/restricted')
 
 router.get("/", restricted, (req, res) => {
   time

@@ -2,6 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 const cycle = require('../cycle/cycle-model')
+const restricted = require('../auth/restricted')
 
 router.get('/', restricted, (req, res) => {
     cycle.find().then(cycle => {
