@@ -1,7 +1,5 @@
 const db = require("../data/dbConfig");
 
-
-
 module.exports = {
   find,
   findBy,
@@ -12,8 +10,8 @@ module.exports = {
 };
 
 function getUserPosts(id) {
-    return db("posts").where({ user_id: id });
-  }
+  return db("posts").where({ user_id: id });
+}
 
 function find() {
   return db("posts");
@@ -41,9 +39,9 @@ async function update(id, edits, user_id) {
   return db("posts").where({ user_id: user_id });
 }
 
- async function remove(id, user_id) {
-   db("posts")
+async function remove(id, user_id) {
+  await db("posts")
     .where({ id })
-    .del()
-    return await db('posts').where({ user_id: user_id})
+    .del();
+  return await db("posts").where({ user_id: user_id });
 }
