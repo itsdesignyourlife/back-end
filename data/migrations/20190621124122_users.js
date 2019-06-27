@@ -23,15 +23,24 @@ exports.up = function(knex, Promise) {
         .onUpdate("CASCADE");
       table.string("postTitle", 128).notNullable();
       table.string("postBody", 128).notNullable();
-      table.string('postTime').notNullable()
-      table.string('postDate').notNullable()
-      table.string('username').notNullable()
+      table.string("postTime").notNullable();
+      table.string("postDate").notNullable();
+      table.integer("weekNumber").defaultTo(0).notNullable()
+      table.string("username").notNullable();
       table.integer("engagementScore").notNullable();
       table.integer("energyScore").notNullable();
       //test
-    });
+    })
+    .createTable("weekNumber", table => {
+      table.integer("weekNumber").notNullable();
+    })
+    .createTable('endOfWeekCycle', table => {
+      table.string('endOfWeekCycle').notNullable()
+    })
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTableIfExists("users").dropTableIfExists("posts");
+  return knex.schema.dropTableIfExists("users").dropTableIfExists("posts").dropTableIfExists("weekNumber").dropTableIfExists("endOfWeekCycle")
 };
+
+

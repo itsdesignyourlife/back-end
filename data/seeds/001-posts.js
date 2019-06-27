@@ -9,6 +9,9 @@ exports.seed = function(knex, Promise) {
           user_id: 1,
           postTitle: "Title Example",
           postBody: "Body Example",
+          postTime: 'example',
+          postDate: 'example',
+          username: 'example',
           engagementScore: 5,
           energyScore: 10
         },
@@ -16,6 +19,9 @@ exports.seed = function(knex, Promise) {
           user_id: 1,
           postTitle: "Title Example",
           postBody: "Body Example",
+          postTime: 'example',
+          postDate: 'example',
+          username: 'example',
           engagementScore: 5,
           energyScore: 10
         },
@@ -23,6 +29,9 @@ exports.seed = function(knex, Promise) {
           user_id: 1,
           postTitle: "Title Example",
           postBody: "Body Example",
+          postTime: 'example',
+          postDate: 'example',
+          username: 'example',
           engagementScore: 5,
           energyScore: 10
         }
