@@ -92,10 +92,10 @@ router.delete("/:id", restricted, (req, res) => {
   const { user_id } = req.body;
   reflections
     .remove(id, user_id)
-    .then(reflections => {
+    .then(() => {
       res
         .status(200)
-        .json({ message: "Reflection removed successfully", reflections });
+        .json({ message: "Reflection removed successfully" });
     })
     .catch(err => {
       res.status(500).json(err);
