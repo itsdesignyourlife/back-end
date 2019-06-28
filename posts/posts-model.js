@@ -40,8 +40,8 @@ async function update(id, edits, user_id) {
 }
 
 async function remove(id, user_id) {
-    await db("posts")
-      .where({ id })
-      .del();
-    return await db("posts").where({ user_id: user_id });
-  }
+  db("posts")
+    .where({ id })
+    .del();
+  return await db("posts").where({ user_id: user_id });
+}
