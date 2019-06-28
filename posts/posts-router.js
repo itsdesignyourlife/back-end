@@ -97,10 +97,10 @@ router.delete("/:id", restricted, (req, res) => {
     const { user_id } = req.body;
     posts
       .remove(id, user_id)
-      .then(posts => {
+      .then(() => {
         res
           .status(200)
-          .json({ message: "Post removed successfully", posts });
+          .json({ message: "Post removed successfully" });
       })
       .catch(err => {
         res.status(500).json(err);
