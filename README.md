@@ -132,7 +132,8 @@ A successful update request will result in a `[200]` status code and will return
             "user_id": 1,       
             "postTitle": "example changes",       
             "postBody": "Body Example",     
-            "createdAt": "June 24th 2019, 10:46 am",        
+            "postTime":"example",
+            "postDate":"example",        
             "username": "username"         
             "engagementScore": 1,      
             "energyScore": 1           

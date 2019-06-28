@@ -4,7 +4,7 @@ const router = express.Router();
 const time = require("../time/time-model");
 const restricted = require('../auth/restricted')
 
-router.get("/", restricted, (req, res) => {
+router.get("/", (req, res) => {
   time
     .find()
     .then(time => {

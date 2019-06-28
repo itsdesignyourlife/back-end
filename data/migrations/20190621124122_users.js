@@ -25,24 +25,46 @@ exports.up = function(knex, Promise) {
       table.string("postBody", 128).notNullable();
       table.string("postTime").notNullable();
       table.string("postDate").notNullable();
-      table.integer("weekNumber").defaultTo(0).notNullable()
+      table
+        .integer("weekNumber")
+        .defaultTo(0)
+        .notNullable();
       table.string("username").notNullable();
       table.integer("engagementScore").notNullable();
       table.integer("energyScore").notNullable();
       //test
     })
     .createTable("weekNumber", table => {
-      table.increments()
+      table.increments();
       table.integer("weekNumber").notNullable();
     })
-    .createTable('endOfWeekCycle', table => {
-      table.increments()
-      table.string('endOfWeekCycle').notNullable()
+    .createTable("endOfWeekCycle", table => {
+      table.increments();
+      table.string("endOfWeekCycle").notNullable();
     })
+    .createTable("reflections", table => {
+      table.increments();
+      table.string("username").notNullable();
+      table
+        .integer("user_id")
+        .unsigned()
+        .notNullable()
+        .references("id")
+        .inTable("users")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
+      table.string("postTitle", 128).notNullable();
+      table.string("postBody", 128).notNullable();
+      table.string("postTime").notNullable();
+      table.string("postDate").notNullable();
+    });
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTableIfExists("users").dropTableIfExists("posts").dropTableIfExists("weekNumber").dropTableIfExists("endOfWeekCycle")
+  return knex.schema
+    .dropTableIfExists("users")
+    .dropTableIfExists("posts")
+    .dropTableIfExists("weekNumber")
+    .dropTableIfExists("endOfWeekCycle")
+    .dropTableIfExists("reflections");
 };
-
-
