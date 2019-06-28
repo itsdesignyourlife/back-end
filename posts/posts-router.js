@@ -93,16 +93,18 @@ router.put("/:id", restricted, (req, res) => {
 });
 
 router.delete("/:id", restricted, (req, res) => {
-  const id = req.params.id;
-  const { user_id } = req.body
-  posts
-    .remove(id, user_id )
-    .then(posts => {
-      res.status(200).json({ message: "Post removed successfully", posts });
-    })
-    .catch(err => {
-      res.status(500).json(err);
-    });
-});
+    const id = req.params.id;
+    const { user_id } = req.body;
+    posts
+      .remove(id, user_id)
+      .then(posts => {
+        res
+          .status(200)
+          .json({ message: "Post removed successfully", posts });
+      })
+      .catch(err => {
+        res.status(500).json(err);
+      });
+  });
 
 module.exports = router;
